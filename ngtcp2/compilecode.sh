@@ -33,3 +33,13 @@ autoreconf -i
 ./configure PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig LDFLAGS="-Wl,-rpath,$PWD/../openssl/build/lib"
 
 make -j$(nproc) check
+
+cp /server.key /ngtcp2/server.key
+
+cp /server.crt /ngtcp2/server.crt
+
+cp /run-ngtcp2-client.sh /ngtcp2/run-client.sh
+
+cp /run-ngtcp2-server.sh /ngtcp2/run-server.sh
+
+/bin/bash
