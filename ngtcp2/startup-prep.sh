@@ -1,6 +1,7 @@
 #! /bin/sh
 
-cd /ngtcp2
+cd ../ && cd /ngtcp2
+
 # update & rebuild ngtcp2 code
 git pull
 

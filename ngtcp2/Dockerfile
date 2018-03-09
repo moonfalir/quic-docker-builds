@@ -38,4 +38,6 @@ RUN git clone https://github.com/moonfalir/quic-docker-builds
 # copy scripts over to container
 COPY server.key server.crt ./
 
+RUN chmod +x /quic-docker-builds/ngtcp2/startup-prep.sh
+
 # ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
