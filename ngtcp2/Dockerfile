@@ -1,31 +1,35 @@
+# OS used
 FROM ubuntu:16.04
 
-RUN apt-get update
+# install basic packages 
+RUN apt-get update && apt-get install -y \
+ git \ 
+ make \ 
+ pkg-config \ 
+ autoconf \ 
+ automake \ 
+ autotools-dev \ 
+ libtool \ 
+ libev-dev
 
-RUN apt-get install git -y
+# copy scripts over to container
+COPY ngtcp2-server.key ngtcp2-server.crt ./
 
-RUN apt-get install make -y
+# clone and build openssl
+RUN git clone --depth 1 https://github.com/openssl/openssl
 
-RUN apt-get install pkg-config -y
+WORKDIR ./openssl
 
-RUN apt-get install autoconf -y
+RUN ./config enable-tls1_3 --prefix=$PWD/build && make -j$(nproc) && make install_sw
 
-RUN apt-get install automake -y
+WORKDIR ../
 
-RUN apt-get install autotools-dev -y
+# clone and build ngtcp2
 
-RUN apt-get install libtool -y
+RUN git clone https://github.com/ngtcp2/ngtcp2
 
-RUN apt-get install libev-dev -y
+WORKDIR ./ngtcp2
 
-COPY compilecode.sh /compilecode.sh
+RUN autoreconf -i && ./configure PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig LDFLAGS="-Wl,-rpath,$PWD/../openssl/build/lib" && make -j$(nproc) check
 
-COPY run-ngtcp2-server.sh /run-ngtcp2-server.sh
-
-COPY run-ngtcp2-client.sh /run-ngtcp2-client.sh
-
-COPY ngtcp2-server.key /server.key
-
-COPY ngtcp2-server.crt /server.crt
-
-CMD ["/compilecode.sh"]
+ENTRYPOINT ["/sharedDir/container-scripts/startup-prep.sh"]
