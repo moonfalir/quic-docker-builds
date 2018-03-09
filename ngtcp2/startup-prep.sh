@@ -6,5 +6,7 @@ git pull
 
 make -j$(nproc)
 
+echo "Ready to run"
+
 # open bash
 /bin/bash
