@@ -6,4 +6,4 @@ git pull
 
 #start client-container
 
-./startup-prep.sh "$@"
+quic-docker-builds/ngtcp2/startup-prep.sh "$@"

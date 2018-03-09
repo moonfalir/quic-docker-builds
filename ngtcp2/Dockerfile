@@ -40,4 +40,4 @@ COPY server.key server.crt ./
 
 RUN chmod +x /quic-docker-builds/ngtcp2/startup-prep.sh
 
-# ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
+ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
