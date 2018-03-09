@@ -12,9 +12,6 @@ RUN apt-get update && apt-get install -y \
  libtool \ 
  libev-dev
 
-# copy scripts over to container
-COPY ngtcp2-server.key ngtcp2-server.crt ./
-
 # clone and build openssl
 RUN git clone --depth 1 https://github.com/openssl/openssl
 
@@ -32,4 +29,13 @@ WORKDIR ./ngtcp2
 
 RUN autoreconf -i && ./configure PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig LDFLAGS="-Wl,-rpath,$PWD/../openssl/build/lib" && make -j$(nproc) check
 
-ENTRYPOINT ["/sharedDir/container-scripts/startup-prep.sh"]
+# clone scripts repo
+
+WORKDIR ../
+
+RUN git clone https://github.com/moonfalir/quic-docker-builds
+
+# copy scripts over to container
+COPY server.key server.crt ./
+
+ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]

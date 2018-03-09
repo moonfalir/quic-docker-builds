@@ -1,9 +1,9 @@
 #! /bin/sh
 
 #update scripts
-
+cd /quic-docker-builds
 git pull
 
 #start client-container
 
-./start-container.sh "$@"
+./startup-prep.sh "$@"
