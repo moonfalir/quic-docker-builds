@@ -1,6 +1,6 @@
 #! /bin/sh
 
-cd ../ && cd /ats
+cd ../ && cd /trafficserver
 
 # update & rebuild ats code
 git pull

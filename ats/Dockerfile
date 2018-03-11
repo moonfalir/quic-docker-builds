@@ -10,7 +10,13 @@ RUN apt-get update && apt-get install -y \
  automake \ 
  autotools-dev \ 
  libtool \ 
- libev-dev
+ libev-dev \
+ libmodule-install-perl \
+ libssl-dev \
+ tcl-dev \
+ libpcre3-dev \
+ libcap-dev \
+ libhwloc-dev
 
 # clone and build openssl
 RUN git clone --depth 1 https://github.com/openssl/openssl
@@ -25,17 +31,14 @@ WORKDIR ../
 
 RUN git clone --depth 1 --branch quic-latest https://github.com/apache/trafficserver
 
-WORKDIR ./traffifserver
+WORKDIR ./trafficserver
 
-RUN ./configure --prefix=$PWD/atsbuild --with-openssl=$PWD/../openssl --enable-debug && make && make install
+RUN autoreconf -if && ./configure --prefix=$PWD/atsbuild --with-openssl=$PWD/../openssl/build --enable-debug && make && make install
 
 WORKDIR ../
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
-RUN chmod +x /quic-docker-builds/ngtcp2/startup-prep.sh
+RUN chmod +x /quic-docker-builds/ats/startup-prep.sh
 
-# copy scripts over to container
-COPY server.key server.crt ./
-
-ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
+ENTRYPOINT ["/quic-docker-builds/ats/startup-prep.sh"]
