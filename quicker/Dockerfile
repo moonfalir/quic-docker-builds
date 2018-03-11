@@ -9,15 +9,6 @@ RUN apt-get update && apt-get install -y \
  make \
  python
  
-# install specific node js
-RUN git clone https://github.com/rmarx/node
-
-WORKDIR ./node
-
-RUN ./configure && make && make install
-
-WORKDIR ../
-
 # install quicker
 RUN git clone https://github.com/rmarx/quicker
 
@@ -25,9 +16,18 @@ WORKDIR ./quicker
 
 RUN npm install
 
-# clone scripts repo
+WORKDIR ./scripts/run-scripts
 
-WORKDIR ../
+# install specific node js
+RUN git clone https://github.com/rmarx/node
+
+WORKDIR ./node
+
+RUN ./configure && make && make install
+
+WORKDIR /
+
+# clone scripts repo
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
