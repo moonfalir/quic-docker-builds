@@ -11,8 +11,7 @@ RUN apt-get update && apt-get install -y \
  autotools-dev \ 
  libtool \ 
  libev-dev \
- cmake \
- openssl
+ cmake
 
 # clone and build openssl
 RUN git clone --depth 1 https://github.com/openssl/openssl
@@ -29,7 +28,7 @@ RUN git clone https://github.com/h2o/picotls
 
 WORKDIR ./picotls
 
-RUN git submodule init && git submodule update && PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig cmake . && make && make 
+RUN cmake . && make && make check
 
 WORKDIR ../
 
@@ -39,7 +38,7 @@ RUN git clone https://github.com/private-octopus/picoquic
 
 WORKDIR ./picoquic
 
-RUN PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig cmake . && make
+RUN cmake . && make
 
 # clone scripts repo
 
@@ -47,6 +46,9 @@ WORKDIR ../
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
-RUN chmod +x /quic-docker-builds/picoquic/startup-prep.sh
+RUN chmod +x /quic-docker-builds/ngtcp2/startup-prep.sh
 
-ENTRYPOINT ["/quic-docker-builds/picoquic/startup-prep.sh"]
+# copy scripts over to container
+COPY server.key server.crt ./
+
+ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
