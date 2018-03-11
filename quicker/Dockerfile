@@ -23,7 +23,7 @@ WORKDIR ./node
 
 RUN ./configure && make && make install
 
-WORKDIR ../
+WORKDIR /
 
 # clone scripts repo
 
