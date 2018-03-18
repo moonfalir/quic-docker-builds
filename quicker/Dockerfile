@@ -23,7 +23,7 @@ RUN git clone https://github.com/rmarx/quicker
 
 WORKDIR ./quicker
 
-RUN npm install
+# RUN npm install
 
 # clone scripts repo
 

@@ -9,7 +9,7 @@ show_help() {
 override=""
 while getopts uh opt ; do
 	case $opt in
-		u)  override="--entrypoint /quic-docker-builds/picoquic/bootstrap.sh"
+		u)  override="--entrypoint /quic-docker-builds/mozquic/bootstrap.sh"
 			;;
 		h) show_help
 		   exit 0
@@ -22,5 +22,5 @@ done
 
 # start container
 dockerrun="docker run --rm -it --net=host"
-dockerrun="$dockerrun $override picoquic"
+dockerrun="$dockerrun $override mozquic"
 eval $dockerrun
