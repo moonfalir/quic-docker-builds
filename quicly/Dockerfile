@@ -24,11 +24,11 @@ WORKDIR ../
 
 # clone and build quicly
 
-RUN git clone https://github.com/h2o/quicly
+RUN git clone --recurse-submodules https://github.com/h2o/quicly
 
 WORKDIR ./quicly 
 
-RUN PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig cmake && make && make check
+RUN PKG_CONFIG_PATH=/openssl/build/lib/pkgconfig cmake . && make check
 
 # clone scripts repo
 
@@ -36,9 +36,9 @@ WORKDIR ../
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
-RUN chmod +x /quic-docker-builds/quicly/startup-prep.sh
-
 # copy scripts over to container
 COPY server.key server.crt ./
+
+RUN chmod +x /quic-docker-builds/quicly/startup-prep.sh
 
 ENTRYPOINT ["/quic-docker-builds/quicly/startup-prep.sh"]
