@@ -7,13 +7,14 @@ RUN apt-get update && apt-get install -y \
  gcc \ 
  g++ \  
  make \
- python \
- nodejs
+ python
  
 # install specific node js
 RUN git clone https://github.com/rmarx/node
 
 WORKDIR ./node
+
+RUN ./configure && make && make -C out BUILDTYPE=Debug
 
 WORKDIR ../
 
