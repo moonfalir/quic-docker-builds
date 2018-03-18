@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
  gcc \ 
  g++ \  
  make \
- python
+ python \
+ nodejs
  
 # install specific node js
 RUN git clone https://github.com/rmarx/node
