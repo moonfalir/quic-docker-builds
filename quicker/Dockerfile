@@ -7,10 +7,12 @@ RUN apt-get update && apt-get install -y \
  gcc \ 
  g++ \  
  make \
- python
+ python \
+ nasm \
+ npm
  
 # install specific node js
-RUN git clone https://github.com/rmarx/node
+RUN git clone --depth 1 -b add_quicker_support https://github.com/kevin-kp/node
 
 WORKDIR ./node
 
@@ -23,7 +25,7 @@ RUN git clone https://github.com/rmarx/quicker
 
 WORKDIR ./quicker
 
-# RUN npm install
+RUN npm install typescript -g && npm install
 
 # clone scripts repo
 
