@@ -4,7 +4,9 @@ FROM ubuntu:16.04
 # install basic packages 
 RUN apt-get update && apt-get install -y \
  git \ 
- make \ 
+ make \
+ gcc \
+ g++ \
  pkg-config \ 
  autoconf \ 
  automake \ 

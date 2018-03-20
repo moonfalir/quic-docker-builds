@@ -16,7 +16,7 @@ RUN git clone --depth 1 -b add_quicker_support https://github.com/kevin-kp/node
 
 WORKDIR ./node
 
-RUN ./configure && make && make -C out BUILDTYPE=Debug
+RUN ./configure && make && make -C out BUILDTYPE=Debug && cp /node/out/Release/node /usr/bin/
 
 WORKDIR ../
 
