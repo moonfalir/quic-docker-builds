@@ -9,24 +9,19 @@ RUN apt-get update && apt-get install -y \
  autoconf \ 
  automake
 
-# clone and build openssl
-RUN git clone --depth 1 https://github.com/openssl/openssl
-
-WORKDIR ./openssl
-
-RUN ./config enable-tls1_3 --prefix=$PWD/build && make && make install
-
-WORKDIR ../
-
 # clone and build mozquic
 
-RUN git clone git@github.com:mcmanus/mozquic.git && git clone git@github.com:nss-dev/nss.git && hg clone https://hg.mozilla.org/projects/nspr 
+RUN git clone https://github.com/mcmanus/mozquic && git clone https://github.com/nss-dev/nss && hg clone https://hg.mozilla.org/projects/nspr 
 
 WORKDIR nss 
 RUN git checkout origin/NSS_3_36_BRANCH && nss/build.sh
 
 WORKDIR mozquic 
 RUN make
+
+# clone script repo
+
+WORKDIR ../
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 

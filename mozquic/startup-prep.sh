@@ -1,11 +1,11 @@
 #! /bin/sh
 
-cd ../ && cd /trafficserver
+cd ../ && cd /mozquic
 
 # update & rebuild ats code
 git pull
 
-make && make install
+make
 
 echo "Ready to run"
 
