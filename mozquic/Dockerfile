@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
  python \
  python-dev \
  gcc \
- mecurial
+ mercurial
 
 # clone and build mozquic
 
