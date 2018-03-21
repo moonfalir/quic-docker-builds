@@ -11,14 +11,16 @@ RUN apt-get update && apt-get install -y \
  python \
  python-dev \
  gcc \
- mercurial
+ mercurial \
+ gyp \
+ ninja
 
 # clone and build mozquic
 
 RUN git clone https://github.com/mcmanus/mozquic && git clone https://github.com/nss-dev/nss && hg clone https://hg.mozilla.org/projects/nspr 
 
 WORKDIR nss 
-RUN git checkout origin/NSS_3_36_BRANCH && nss/build.sh
+RUN git checkout origin/NSS_3_36_BRANCH && ./build.sh -v -j 2
 
 WORKDIR mozquic 
 RUN make
