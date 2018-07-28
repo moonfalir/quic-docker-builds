@@ -9,7 +9,7 @@ show_help() {
 override=""
 while getopts uh opt ; do
 	case $opt in
-		u)  override="--entrypoint /quic-docker-builds/quicker/bootstrap.sh"
+		u)  override="--entrypoint /quic-docker-builds/quant/bootstrap.sh"
 			;;
 		h) show_help
 		   exit 0
@@ -21,6 +21,6 @@ while getopts uh opt ; do
 done
 
 # start container
-dockerrun="docker run --rm -it --net=host -v ~/Documents/bachelorproef/quic-docker-builds/quicker/serverlogs:/serverlogs"
-dockerrun="$dockerrun $override quicker"
+dockerrun="docker run --rm -it --net=host -v ~/Documents/bachelorproef/quic-docker-builds/quant/serverlogs:/serverlogs"
+dockerrun="$dockerrun $override quant"
 eval $dockerrun
