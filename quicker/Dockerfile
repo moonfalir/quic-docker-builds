@@ -1,10 +1,10 @@
 # OS used
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # install basic packages 
 RUN apt-get update && apt-get install -y \
  git \ 
- gcc \ 
+ gcc-7 \ 
  g++ \  
  make \
  python \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
  npm
  
 # install specific node js
-RUN git clone --depth 1 -b add_quicker_support https://github.com/kevin-kp/node
+RUN git clone --depth 1 -b add_quicker_support-tls-d28 https://github.com/kevin-kp/node
 
 WORKDIR ./node
 
@@ -21,11 +21,11 @@ RUN ./configure && make && make -C out BUILDTYPE=Debug && cp /node/out/Release/n
 WORKDIR ../
 
 # install quicker
-RUN git clone https://github.com/rmarx/quicker
+RUN git clone --single-branch -b draft-11 https://github.com/rmarx/quicker
 
 WORKDIR ./quicker
 
-RUN npm install typescript -g && npm install
+RUN npm install typescript -g && npm install && tsc -p ./
 
 # clone scripts repo
 

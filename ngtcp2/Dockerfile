@@ -1,5 +1,5 @@
 # OS used
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # install basic packages 
 RUN apt-get update && apt-get install -y \
@@ -23,7 +23,7 @@ WORKDIR ../
 
 # clone and build ngtcp2
 
-RUN git clone https://github.com/ngtcp2/ngtcp2
+RUN git clone --single-branch -b draft-11 https://github.com/ngtcp2/ngtcp2
 
 WORKDIR ./ngtcp2
 

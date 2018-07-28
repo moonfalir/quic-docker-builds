@@ -1,0 +1,154 @@
+Running QUICker server at 127.0.0.1:4433, with certs: ../keys/selfsigned_default.key, ../keys/selfsigned_default.crt
+2018-04-04T10:14:42.318 
+  [36mRX Initial(0x0)[0m CID: 0x7df90452687d43e6[36m, PKN: 2619413598[0m, Version: 0xff00000a
+    [36mSTREAM (0x16) [0m FIN=0 LEN=1 OFF=1
+    StreamID (0x00) length=325 offset=0
+    [36mPADDING (0x0)[0m
+    length= 836
+2018-04-04T10:14:42.327 
+  [31mTX Handshake(0x2)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554703[0m, Version: 0xff00000a
+    [31mSTREAM (0x16) [0m FIN=0 LEN=1 OFF=1
+    StreamID (0x00) length=1166 offset=0
+2018-04-04T10:14:42.329 
+  [31mTX Handshake(0x2)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554704[0m, Version: 0xff00000a
+    [31mSTREAM (0x16) [0m FIN=0 LEN=1 OFF=1
+    StreamID (0x00) length=534 offset=1166
+2018-04-04T10:14:42.339 
+  [31mTX Handshake(0x2)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554705[0m, Version: 0xff00000a
+    [31mACK (0xd)[0m
+    largest acknowledged=2619413598
+    ack delay=30840
+    ack block count=0
+    first ackblock=0
+2018-04-04T10:14:42.341 
+  [36mRX Handshake(0x2)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413599[0m, Version: 0xff00000a
+    [36mSTREAM (0x16) [0m FIN=0 LEN=1 OFF=1
+    StreamID (0x00) length=64 offset=325
+2018-04-04T10:14:42.343 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554706[0m
+    [31mSTREAM (0x16) [0m FIN=0 LEN=1 OFF=1
+    StreamID (0x00) length=224 offset=1700
+2018-04-04T10:14:42.353 
+  [36mRX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413600[0m
+    [36mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x04) length=16 offset=0
+      474554202f696e6465782e68746d6c0a          'GET /index.html\n'
+2018-04-04T10:14:42.355 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554707[0m
+    [31mMAX_STREAM_ID (0x6)[0m
+    Max streamID=0x70
+    [31mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x04) length=186 offset=0
+      3c21646f63747970652068746d6c3e0a          '<!doctype html>\n'
+      3c68746d6c3e0a202020203c68656164          '<html>\n    <head'
+      3e0a20202020202020203c7469746c65          '>\n        <title'
+      3e517569636b65723c2f7469746c653e          '>Quicker</title>'
+      0a202020203c2f686561643e0a202020          '\n    </head>\n   '
+      203c626f64793e0a2020202020202020          ' <body>\n        '
+      3c703e48656c6c6f20576f726c642066          '<p>Hello World f'
+      726f6d20517569636b6572213c2f703e          'rom Quicker!</p>'
+      0a20202020202020203c62722f3e0a20          '\n        <br/>\n '
+      202020202020203c703e476f6f646279          '       <p>Goodby'
+      65213c2f703e0a202020203c2f626f64          'e!</p>\n    </bod'
+      793e0a3c2f68746d6c3e                      'y>\n</html>'
+2018-04-04T10:14:42.356 
+  [36mRX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413601[0m
+    [36mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x08) length=16 offset=0
+      474554202f696e6465782e68746d6c0a          'GET /index.html\n'
+2018-04-04T10:14:42.357 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554708[0m
+    [31mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x08) length=186 offset=0
+      3c21646f63747970652068746d6c3e0a          '<!doctype html>\n'
+      3c68746d6c3e0a202020203c68656164          '<html>\n    <head'
+      3e0a20202020202020203c7469746c65          '>\n        <title'
+      3e517569636b65723c2f7469746c653e          '>Quicker</title>'
+      0a202020203c2f686561643e0a202020          '\n    </head>\n   '
+      203c626f64793e0a2020202020202020          ' <body>\n        '
+      3c703e48656c6c6f20576f726c642066          '<p>Hello World f'
+      726f6d20517569636b6572213c2f703e          'rom Quicker!</p>'
+      0a20202020202020203c62722f3e0a20          '\n        <br/>\n '
+      202020202020203c703e476f6f646279          '       <p>Goodby'
+      65213c2f703e0a202020203c2f626f64          'e!</p>\n    </bod'
+      793e0a3c2f68746d6c3e                      'y>\n</html>'
+2018-04-04T10:14:42.359 
+  [36mRX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413602[0m
+    [36mACK (0xd)[0m
+    largest acknowledged=201554706
+    ack delay=7280
+    ack block count=0
+    first ackblock=3
+2018-04-04T10:14:42.362 
+  [36mRX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413603[0m
+    [36mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x0c) length=16 offset=0
+      474554202f696e6465782e68746d6c0a          'GET /index.html\n'
+    [36mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x10) length=16 offset=0
+      474554202f696e6465782e68746d6c0a          'GET /index.html\n'
+    [36mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x14) length=16 offset=0
+      474554202f696e6465782e68746d6c0a          'GET /index.html\n'
+2018-04-04T10:14:42.362 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554709[0m
+    [31mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x0c) length=186 offset=0
+      3c21646f63747970652068746d6c3e0a          '<!doctype html>\n'
+      3c68746d6c3e0a202020203c68656164          '<html>\n    <head'
+      3e0a20202020202020203c7469746c65          '>\n        <title'
+      3e517569636b65723c2f7469746c653e          '>Quicker</title>'
+      0a202020203c2f686561643e0a202020          '\n    </head>\n   '
+      203c626f64793e0a2020202020202020          ' <body>\n        '
+      3c703e48656c6c6f20576f726c642066          '<p>Hello World f'
+      726f6d20517569636b6572213c2f703e          'rom Quicker!</p>'
+      0a20202020202020203c62722f3e0a20          '\n        <br/>\n '
+      202020202020203c703e476f6f646279          '       <p>Goodby'
+      65213c2f703e0a202020203c2f626f64          'e!</p>\n    </bod'
+      793e0a3c2f68746d6c3e                      'y>\n</html>'
+2018-04-04T10:14:42.363 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554710[0m
+    [31mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x10) length=186 offset=0
+      3c21646f63747970652068746d6c3e0a          '<!doctype html>\n'
+      3c68746d6c3e0a202020203c68656164          '<html>\n    <head'
+      3e0a20202020202020203c7469746c65          '>\n        <title'
+      3e517569636b65723c2f7469746c653e          '>Quicker</title>'
+      0a202020203c2f686561643e0a202020          '\n    </head>\n   '
+      203c626f64793e0a2020202020202020          ' <body>\n        '
+      3c703e48656c6c6f20576f726c642066          '<p>Hello World f'
+      726f6d20517569636b6572213c2f703e          'rom Quicker!</p>'
+      0a20202020202020203c62722f3e0a20          '\n        <br/>\n '
+      202020202020203c703e476f6f646279          '       <p>Goodby'
+      65213c2f703e0a202020203c2f626f64          'e!</p>\n    </bod'
+      793e0a3c2f68746d6c3e                      'y>\n</html>'
+2018-04-04T10:14:42.365 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554711[0m
+    [31mSTREAM (0x17) [0m FIN=1 LEN=1 OFF=1
+    StreamID (0x14) length=186 offset=0
+      3c21646f63747970652068746d6c3e0a          '<!doctype html>\n'
+      3c68746d6c3e0a202020203c68656164          '<html>\n    <head'
+      3e0a20202020202020203c7469746c65          '>\n        <title'
+      3e517569636b65723c2f7469746c653e          '>Quicker</title>'
+      0a202020203c2f686561643e0a202020          '\n    </head>\n   '
+      203c626f64793e0a2020202020202020          ' <body>\n        '
+      3c703e48656c6c6f20576f726c642066          '<p>Hello World f'
+      726f6d20517569636b6572213c2f703e          'rom Quicker!</p>'
+      0a20202020202020203c62722f3e0a20          '\n        <br/>\n '
+      202020202020203c703e476f6f646279          '       <p>Goodby'
+      65213c2f703e0a202020203c2f626f64          'e!</p>\n    </bod'
+      793e0a3c2f68746d6c3e                      'y>\n</html>'
+2018-04-04T10:14:42.367 
+  [31mTX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[31m, PKN: 201554712[0m
+    [31mACK (0xd)[0m
+    largest acknowledged=2619413603
+    ack delay=5120
+    ack block count=0
+    first ackblock=4
+2018-04-04T10:14:42.380 
+  [36mRX Protected1RTT(0x5)[0m CID: 0x2e68e047c2a00ae0[36m, PKN: 2619413604[0m
+    [36mACK (0xd)[0m
+    largest acknowledged=201554712
+    ack delay=2576
+    ack block count=0
+    first ackblock=5

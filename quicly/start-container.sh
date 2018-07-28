@@ -21,6 +21,6 @@ while getopts uh opt ; do
 done
 
 # start container
-dockerrun="docker run --rm -it --net=host"
+dockerrun="docker run --rm -it --net=host -v ~/Documents/bachelorproef/quic-docker-builds/quicly/serverlogs:/serverlogs"
 dockerrun="$dockerrun $override quicly"
 eval $dockerrun

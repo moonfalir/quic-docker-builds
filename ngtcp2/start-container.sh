@@ -21,6 +21,6 @@ while getopts uh opt ; do
 done
 
 # start container
-dockerrun="docker run --rm -it --net=host"
+dockerrun="docker run --rm -it --net=host -v ~/Documents/bachelorproef/quic-docker-builds/ngtcp2/serverlogs:/serverlogs"
 dockerrun="$dockerrun $override ngtcp2"
 eval $dockerrun
