@@ -1,0 +1,17 @@
+[0m[0m0.000[0m [44m [0m [35mq_init[30m [34mquic.c:460 [0mquant/socket 0.0.11/f38b1898 with libev 4.22 ready
+[0m      [44m [0m [35mq_init[30m [34mquic.c:461 [0msubmit bug reports at https://github.com/NTAP/quant/issues
+[0m      [42m [0m [35mnew_aead[30m [34mtls.c:171 [0mkey=acfd03fe6504563a7b0d22a688425d50
+[0m      [42m [0m [35mnew_aead[30m [34mtls.c:171 [0mkey=acfd03fe6504563a7b0d22a688425d50
+[0m      [42m [0m [35mq_bind[30m [34mquic.c:346 [0mbinding serv socket on port 4433
+[0m      [42m [0m [35mnew_conn[30m [34mconn.c:1052 [0mserv conn  on port 4433 created
+[0m      [43m [0m [35mq_bind[30m [34mquic.c:348 [0mbound serv socket on port 4433
+[0m      [42m [0m [35mmain[30m [34mserver.c:230 [0mserver waiting on lo port 4433
+[0m      [42m [0m [35mq_bind[30m [34mquic.c:346 [0mbinding serv socket on port 4434
+[0m      [42m [0m [35mnew_conn[30m [34mconn.c:1052 [0mserv conn  on port 4434 created
+[0m      [43m [0m [35mq_bind[30m [34mquic.c:348 [0mbound serv socket on port 4434
+[0m      [42m [0m [35mmain[30m [34mserver.c:230 [0mserver waiting on lo port 4434
+[0m      [43m [0m [35mq_accept[30m [34mquic.c:369 [0mwaiting for conn on any serv sock (timeout 0 sec)
+[0m      [42m [0m [35mq_accept[30m [34mquic.c:385 [0mq_accept(accept_queue, 0) entering event loop
+==25==LeakSanitizer has encountered a fatal error.
+==25==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==25==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)

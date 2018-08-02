@@ -1,22 +1,23 @@
 # OS used
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 # install basic packages 
 RUN apt-get update && apt-get install -y \
  git \ 
- gcc-7 \ 
+ gcc \ 
  g++ \  
  make \
  python \
  nasm \
- npm
+ npm \
+ libssl-dev
  
 # install specific node js
-RUN git clone --depth 1 -b add_quicker_support-tls-d28 https://github.com/kevin-kp/node
+COPY ./node/ /node/
 
 WORKDIR ./node
 
-RUN ./configure && make && make -C out BUILDTYPE=Debug && cp /node/out/Release/node /usr/bin/
+RUN ./configure --openssl-no-asm && make && cp /node/out/Release/node /usr/bin/
 
 WORKDIR ../
 

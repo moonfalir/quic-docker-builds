@@ -11,13 +11,18 @@ RUN apt-get update && apt-get install -y \
  libssl-dev \
  libhttp-parser-dev \
  libbsd-dev \
+ cmake \
+ doxygen \
+ graphviz \
+ mercurial \
+ pkg-config
 
 # install quant
-RUN git clone --single-branch -b 11 https://github.com/NTAP/quant
+COPY ./quant/ /quant/
 
 WORKDIR ./quant
 
-RUN mkdir Debug
+RUN mkdir Debug && mkdir ./Debug/external && mkdir ./Debug/external/lib
 
 WORKDIR ./Debug
 
@@ -25,17 +30,17 @@ RUN cmake .. && make
 
 WORKDIR ../
 
-RUN mkdir Release
+RUN mkdir Release && mkdir ./Release/external && mkdir ./Release/external/lib
 
 WORKDIR ./Release
 
 RUN cmake -DCMAKE_BUILD_TYPE=Release .. && make
 
-WORKDIR ../
+COPY server.key server.crt ../Debug/bin/
 
 # clone scripts repo
 
-WORKDIR ../
+WORKDIR /
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
