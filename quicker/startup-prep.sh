@@ -3,7 +3,7 @@
 cd ../ && cd /quicker
 
 # update & rebuild ngtcp2 code
-git checkout 4e4bedb6f86047a0cc9c41ce66d930d94e6f6222
+git checkout 1ba4322029cefffaa5cb6295bda9c0c2f278642a
 npm install
 
 echo "Ready to run"
