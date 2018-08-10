@@ -3,7 +3,7 @@
 cd ../ && cd /quicker
 
 # update & rebuild ngtcp2 code
-git pull
+git checkout -b master
 npm install
 
 echo "Ready to run"
