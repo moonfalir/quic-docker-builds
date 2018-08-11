@@ -1,21 +1,28 @@
 # OS used
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # install basic packages 
 RUN apt-get update && apt-get install -y \
  git \ 
- gcc \ 
+ gcc-7 \ 
  g++ \  
  make \
  python \
  nasm \
- npm \
  libssl-dev
  
 # install specific node js
-COPY ./node/ /node/
+RUN git clone -b add_quicker_support-tls-d28 https://github.com/kevin-kp/node
 
 WORKDIR ./node
+
+RUN git checkout 257a17bbd3f6e3e1ae7b536cc2ef7b79714362af
+
+#copy new tls13_enc.cc file with key export and qtls_wrap.cc with call back
+
+# COPY tls13_enc.c /node/deps/openssl/openssl/ssl/
+
+# COPY qtls_wrap.cc /node/src/
 
 RUN ./configure --openssl-no-asm && make && cp /node/out/Release/node /usr/bin/
 
@@ -24,9 +31,9 @@ WORKDIR ../
 # install quicker
 RUN git clone --single-branch -b draft-11 https://github.com/rmarx/quicker
 
-WORKDIR ./quicker
+WORKDIR /quicker
 
-RUN npm install typescript -g && npm install && tsc -p ./
+RUN apt-get install -y npm && npm install typescript -g && npm install && tsc -p ./
 
 # clone scripts repo
 
