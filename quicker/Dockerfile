@@ -16,13 +16,13 @@ RUN git clone -b add_quicker_support-tls-d28 https://github.com/kevin-kp/node
 
 WORKDIR ./node
 
-RUN git checkout 257a17bbd3f6e3e1ae7b536cc2ef7b79714362af
+RUN git checkout 257a17bbd3f6e3e1ae7b536cc2ef7b79714362af 
 
 #copy new tls13_enc.cc file with key export and qtls_wrap.cc with call back
 
-# COPY tls13_enc.c /node/deps/openssl/openssl/ssl/
+COPY tls13_enc.c /node/deps/openssl/openssl/ssl/
 
-# COPY qtls_wrap.cc /node/src/
+COPY qtls_wrap.cc /node/src/
 
 RUN ./configure --openssl-no-asm && make && cp /node/out/Release/node /usr/bin/
 
