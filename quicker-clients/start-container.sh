@@ -27,5 +27,5 @@ done
 
 # start container
 dockerrun="docker run --rm -it --net=host -v ~/Documents/bachelorproef/quic-docker-builds/quicker-clients/serverlogs:/serverlogs"
-dockerrun="$dockerrun $override quicker $parameter"
+dockerrun="$dockerrun $override quicker-clients $parameter"
 eval $dockerrun
