@@ -12,6 +12,7 @@ then
 fi
 
 npm install
+tsc -p ./
 
 echo "Ready to run"
 
