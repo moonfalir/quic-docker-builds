@@ -33,7 +33,7 @@ RUN git clone https://github.com/moonfalir/quicker
 
 WORKDIR /quicker
 
-RUN git checkout -b d11-baseclient
+RUN git checkout -b remotes/origin/d11-baseclient
 
 RUN apt-get install -y npm && npm install typescript -g && npm install && tsc -p ./
 
