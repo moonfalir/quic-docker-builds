@@ -43,6 +43,6 @@ WORKDIR ../
 
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
-RUN chmod +x /quic-docker-builds/quicker/startup-prep.sh
+RUN chmod +x /quic-docker-builds/quicker-clients/startup-prep.sh
 
-ENTRYPOINT ["/quic-docker-builds/quicker/startup-prep.sh"]
+ENTRYPOINT ["/quic-docker-builds/quicker-clients/startup-prep.sh"]
