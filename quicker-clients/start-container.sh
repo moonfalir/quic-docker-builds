@@ -1,14 +1,14 @@
 #!/bin/bash
 
 show_help() {
-   echo "Usage: ${0##*/} [-d] [-i] [-f] ...
+   echo "Usage: ${0##*/} [-d] [-i] [-f] [-l] ...
 
    		-u update startup script"
 }
 #if -u given, override the entrypoint script to first update startup-prep.sh
 override="--entrypoint /quic-docker-builds/quicker-clients/bootstrap.sh"
 parameter=""
-while getopts hdif opt ; do
+while getopts lhdif opt ; do
 	case $opt in
 		d)  parameter="duplicates"
 		    ;;
