@@ -9,12 +9,17 @@ then
 elif [[ $1 == "initials" ]]; 
 then
 	git pull origin d11-sent-2-initial
+elif [[ $1 == "flowblocking" ]]; 
+then
+	git pull origin d11-exceeding-maxdata
 else
 	git pull origin d11-baseclient
 fi
 
 npm install
 tsc -p ./
+
+cd ./out/
 
 echo "Ready to run"
 

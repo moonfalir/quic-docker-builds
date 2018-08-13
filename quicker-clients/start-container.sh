@@ -8,13 +8,15 @@ show_help() {
 #if -u given, override the entrypoint script to first update startup-prep.sh
 override=""
 parameter=""
-while getopts uhdi opt ; do
+while getopts uhdif opt ; do
 	case $opt in
 		u)  override="--entrypoint /quic-docker-builds/quicker-clients/bootstrap.sh"
 			;;
 		d)  parameter="duplicates"
 		    ;;
 	   	i)  parameter="initials"
+		    ;;
+	    f)  parameter="flowblocking"
 		    ;;
 		h) show_help
 		   exit 0
