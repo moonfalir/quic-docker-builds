@@ -16,6 +16,8 @@ while getopts hdif opt ; do
 		    ;;
 	    f)  parameter="flowblocking"
 		    ;;
+		l) parameter="longtransfer"
+		    ;;
 		h) show_help
 		   exit 0
 		   ;;

@@ -12,6 +12,9 @@ then
 elif [[ $1 == "flowblocking" ]]; 
 then
 	git pull origin d11-exceeding-maxdata
+elif [[ $1 == "longtransfer" ]]; 
+then
+	git pull origin d11-long-transfer
 else
 	git pull origin d11-baseclient
 fi
