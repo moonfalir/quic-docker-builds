@@ -43,4 +43,8 @@ RUN git clone https://github.com/moonfalir/quic-docker-builds
 
 RUN chmod +x /quic-docker-builds/quicker/startup-prep.sh
 
+COPY index.html /quicker/public/
+
+COPY 100mb.zip /quicker/public/
+
 ENTRYPOINT ["/quic-docker-builds/quicker/startup-prep.sh"]

@@ -40,4 +40,8 @@ RUN chmod +x /quic-docker-builds/ngtcp2/startup-prep.sh
 # copy scripts over to container
 COPY server.key server.crt ./
 
+COPY index.html /ngtcp2/
+
+COPY 100MB.zip /ngtcp2/
+
 ENTRYPOINT ["/quic-docker-builds/ngtcp2/startup-prep.sh"]
