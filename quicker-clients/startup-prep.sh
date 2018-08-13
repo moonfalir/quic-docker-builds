@@ -9,6 +9,8 @@ then
 elif [[ $1 == "initials" ]]; 
 then
 	git checkout origin/d11-sent-2-initial
+else
+	git pull origin d11-baseclient
 fi
 
 npm install
