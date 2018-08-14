@@ -1,7 +1,9 @@
 # OS used
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-# install basic packages 
+
+RUN apt-get update && apt-get install -y tzdata
+
 RUN apt-get update && apt-get install -y \
  git \ 
  make \
@@ -31,7 +33,7 @@ WORKDIR ../
 
 # clone and build ats
 
-RUN git clone --depth 1 --branch quic-latest https://github.com/apache/trafficserver
+RUN git clone --depth 1 --branch quic-11 https://github.com/apache/trafficserver
 
 WORKDIR ./trafficserver
 
@@ -42,5 +44,9 @@ WORKDIR ../
 RUN git clone https://github.com/moonfalir/quic-docker-builds
 
 RUN chmod +x /quic-docker-builds/ats/startup-prep.sh
+
+COPY records.config /trafficserver/atsbuild/etc/trafficserver/
+
+COPY remap.config /trafficserver/atsbuild/etc/trafficserver/
 
 ENTRYPOINT ["/quic-docker-builds/ats/startup-prep.sh"]

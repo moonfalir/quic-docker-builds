@@ -29,6 +29,7 @@ RUN git clone https://github.com/h2o/picotls
 
 WORKDIR ./picotls
 
+
 RUN git submodule init && git submodule update && PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig cmake . && make && make 
 
 WORKDIR ../
@@ -38,6 +39,8 @@ WORKDIR ../
 RUN git clone https://github.com/private-octopus/picoquic
 
 WORKDIR ./picoquic
+
+RUN git checkout d5bc5fa12e74def1ddbb71ce7d794fa13bc72cac
 
 RUN PKG_CONFIG_PATH=$PWD/../openssl/build/lib/pkgconfig cmake . && make
 
