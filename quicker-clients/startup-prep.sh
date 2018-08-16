@@ -15,6 +15,9 @@ then
 elif [[ $1 == "longtransfer" ]]; 
 then
 	git pull origin d11-long-transfer
+elif [[ $1 == "0rtt" ]]; 
+then
+	git pull origin d11-incorrect-0rtt
 else
 	git pull origin d11-baseclient
 fi
